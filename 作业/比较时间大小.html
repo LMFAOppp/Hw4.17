@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript"> 
+
+			var d1 = new Date('2017/12/10 10:00:00');
+			console.log(d1) 
+			
+			var d2 = new Date().getTime()
+			console.log(d2) 
+			
+			console.log("两个时间相差的秒数"+parseInt(d2 - d1) / 1000);
+			console.log("两个时间相差的分钟数"+parseInt(d2 - d1) / 1000 / 60);
+			console.log("两个时间相差的小时数" +parseInt(d2 - d1) / 1000 / 60 / 60);
+			console.log("两个时间相差的天数" +parseInt(d2 - d1) / 1000 / 60 / 60 / 24  );
+			
+			
+		</script>
+	</body>
+
+</html> 
