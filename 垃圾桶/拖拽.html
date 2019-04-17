@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 30px;
+				height: 30px;
+				background-color: red;
+				margin: 10px;
+				float: left;
+			}
+			.box:nth-of-type(2n){
+				background-color: blue;
+				
+			}
+			.wrap{
+				width: 250px;
+				height: 100px;
+				border:5px dashed gold;
+				position: fixed;
+				bottom: 250px;
+				
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box" draggable="true"></div>
+		<div class="box" draggable="true"></div>
+		<div class="box" draggable="true"></div>
+		<div class="box" draggable="true"></div>
+		<div class="box" draggable="true"></div>
+		<div class="box" draggable="true"></div>
+		<div class="box" draggable="true"></div>
+		<div class="box" draggable="true"></div>
+		
+		<div class="wrap"></div>
+		
+			
+		
+		
+		<script type="text/javascript">
+			var box = document.querySelectorAll(".box");
+			var wrap = document.querySelector(".wrap");
+			
+			var tmp;
+
+			for(var i = 0; i < box.length; i++) {
+				box[i].ondragstart = function() {
+					tmp = this;
+					console.log("拖拽开始")
+				}
+
+				box[i].ondragend = function() {
+					tmp = null;
+					console.log("拖拽结束")
+				}
+			}
+
+			wrap.ondragenter = function() {
+				console.log("进入");
+			}
+
+			wrap.ondragleave = function() {
+				console.log("离开");
+			}
+			wrap.ondragover = function(e) {
+				e.preventDefault();
+				//				console.log("悬停");
+			}
+            //ondrop可拖动元素或选取的文本放置在目标区域时触发
+			wrap.ondrop = function(e) {
+				e.preventDefault();
+				console.log('松手');
+				if(tmp!=null)
+					this.appendChild(tmp);
+				
+			}
+		</script>
+	</body>
+</html>
